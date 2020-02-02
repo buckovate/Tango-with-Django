@@ -14,13 +14,13 @@ def populate():
 # through each data structure, and add the data to our models.
 
     python_pages = [
-		{"title": "Official Python Tutorial", "url":"http://docs.python.org/2/tutorial/", "views": 32},
+		{"title": "Official Python Tutorial", "url":"http://docs.python.org/3/tutorial/", "views": 32},
 		{"title":"How to Think like a Computer Scientist", "url":"http://www.greenteapress.com/thinkpython/", "views": 16},
 	    {"title":"Learn Python in 10 Minutes", "url":"http://www.korokithakis.net/tutorials/python/", "views": 8},]
         
     django_pages = [
 		{"title":"Official Django Tutorial",
-	        "url":"https://docs.djangoproject.com/en/1.9/intro/tutorial01/", "views": 32},
+	        "url":"https://docs.djangoproject.com/en/2.1/intro/tutorial01/", "views": 32},
 		{"title":"Django Rocks",
 	        "url":"http://www.djangorocks.com/" , "views": 16},
 		{ "title":"How to Tango with Django",
@@ -49,7 +49,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
         for p in cat_data["pages"]:
-            add_page(c, p["title"], p["url"])
+            add_page(c, p["title"], p["url"], p["views"])
 
 # Print out the categories we have added.
     for c in Category.objects.all():
