@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-<head>
-<title>Rango</title>
-</head>
+{% extends 'rango/base.html' %}
+ {% load staticfiles %}
+Rango - 
+ {% block title_block %}
+Homepage
+ {% endblock %}
+{% block body_block %}
 <body>
-<h1>Rango says...</h1>
-<div>
-hey there partner!
-</div>
+{% if user.is_authenticated %}
+				howdy {{ user.username }}!
+			{% else %}
+				hey there partner!
+			{% endif %}
 <strong>{{ boldmessage }}</strong><br />
 <div>
-<a href="/rango/add_category/">Add a New Category</a><br />
+
 <h2>Most Liked Categories</h2>
 {% if categories %}
 <ul>
@@ -40,8 +42,6 @@ hey there partner!
 			 {% endif %}
 </div>
 <div>
-<a href="/rango/about/">About Rango</a><br />
-<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+<a href="/rango/about/">About Rango</a><br /> </div> <div> <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> <!-- New line -->
 </div>
-</body>
-</html>
+ {% endblock %}
